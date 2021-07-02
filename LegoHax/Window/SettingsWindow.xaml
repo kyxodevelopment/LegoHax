@@ -1,0 +1,123 @@
+﻿<Window x:Class="LegoHax.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LegoHax"
+        mc:Ignorable="d"
+        Title="LegoHax - Settings"
+        Height="245.333" 
+        Width="180.333"
+        Background="Transparent"
+        BorderBrush="Transparent"
+        BorderThickness="1"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
+        AllowsTransparency="True"
+        ResizeMode="NoResize">
+
+    <Border
+        Padding="4">
+
+        <Border
+            Background="#101010"
+            CornerRadius="3">
+
+            <UIElement.Effect>
+                <DropShadowEffect
+                    BlurRadius="5"
+                    ShadowDepth="0"
+                    Opacity="0.8"
+                    RenderingBias="Quality"/>
+            </UIElement.Effect>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="33"/>
+                    <RowDefinition
+                        Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border
+                    CornerRadius="3 3 0 0"
+                    Background="#131313"
+                    BorderBrush="#181818"
+                    BorderThickness="1"
+                    Margin="3">
+                    <Grid>
+                        
+                        <StackPanel
+                            Margin="7 1 0 0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <Border
+                                Background="#191919"
+                                Width="13"
+                                Height="13"
+                                CornerRadius="220"
+                                Cursor="Hand"/>
+                            <Border
+                                Background="#202020"
+                                Width="13"
+                                Height="13"
+                                CornerRadius="220"
+                                Grid.Column="1"
+                                Margin="5 0 0 0"
+                                Cursor="Hand"/>
+                        </StackPanel>
+
+                        <StackPanel
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontFamily="{StaticResource PopLight}">
+                                <Run Foreground="White">LEGO</Run>
+                                <Run Foreground="Gray">HAX</Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <Border
+                    x:Name="CenterBorder"
+                    Grid.Row="1"
+                    CornerRadius="0 0 3 3"
+                    Background="#131313"
+                    BorderBrush="#181818"
+                    BorderThickness="1"
+                    Margin="3 0 3 3">
+                    <StackPanel
+                        Margin="0 25 0 0"
+                        Orientation="Vertical"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                        <CheckBox
+                            Content="Top Most"/>
+                        <CheckBox
+                            Content="Unlock Fps"
+                            Margin="0 5 0 0"/>
+                        <CheckBox
+                            Content="Auto Attach"
+                            Margin="0 5 0 0"/>
+                        <CheckBox
+                            Content="Auto Execute"
+                            Margin="0 5 0 0"/>
+                        <Button
+                            Grid.Row="5"
+                            Height="25"
+                            Margin="0 10 0 0"
+                            Content="End Roblox"
+                            BorderBrush="#181818"
+                            FontFamily="{StaticResource PopLight}"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Border>
+</Window>

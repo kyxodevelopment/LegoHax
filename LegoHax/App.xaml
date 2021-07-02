@@ -1,0 +1,144 @@
+﻿<Application
+    x:Class="LegoHax.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="/Window/MainWindow.xaml">
+    <Application.Resources>
+
+        <FontFamily x:Key="PopLight">/Font/#Poppins Light</FontFamily>
+        <FontFamily x:Key="Pop">/Font/#Poppins Regular</FontFamily>
+        <FontFamily x:Key="PopThin">/Font/#Poppins Thin</FontFamily>
+
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+            <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="Stretch" Value="Fill" />
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="{StaticResource PopLight}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="True"
+                            CornerRadius="2.3">
+                            <ContentPresenter
+                                x:Name="content"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True"
+                                Focusable="False"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger
+                                Property="IsMouseOver"
+                                Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                AutoReverse="False"
+                                                FillBehavior="HoldEnd"
+                                                RepeatBehavior="1x"
+                                                Storyboard.TargetName="content"
+                                                Storyboard.TargetProperty="Opacity"
+                                                Duration="0:0:0.35"
+                                                To="0.4">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <PowerEase 
+                                                        EasingMode="EaseInOut" />
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                AutoReverse="False"
+                                                FillBehavior="HoldEnd"
+                                                RepeatBehavior="1x"
+                                                Storyboard.TargetName="content"
+                                                Storyboard.TargetProperty="Opacity"
+                                                Duration="0:0:0.35">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <PowerEase 
+                                                        EasingMode="EaseInOut" />
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="{StaticResource PopLight}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#181818"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border
+                                x:Name="border"
+                                Width="23"
+                                Height="23"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                                <Path
+                                    x:Name="CheckMark"
+                                    Margin="6"
+                                    Data="M 0 0 L 7 7 M 0 7 L 7 0"
+                                    Fill="White"
+                                    Stretch="Fill"
+                                    Stroke="White"
+                                    StrokeEndLineCap="Round"
+                                    StrokeStartLineCap="Round"
+                                    StrokeThickness="1.7" 
+                                    Visibility="Collapsed"/>
+                            </Border>
+                            <ContentPresenter
+                                Margin="5,0,0,1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True"
+                                Focusable="False"/>
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger 
+                                Property="IsChecked"
+                                Value="True">
+                                <Setter 
+                                    TargetName="CheckMark"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
